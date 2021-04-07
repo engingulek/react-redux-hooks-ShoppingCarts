@@ -2,7 +2,9 @@
 
 import './App.css';
 import CardDesigns from './components/CardDesings';
-
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from "./redux/actions/actions"
+import { useEffect } from 'react';
 
 
 
@@ -23,6 +25,19 @@ function App() {
 // useEffect(() => {
 //  getCartList()
 // },)
+
+const dispatch = useDispatch()
+dispatch(actions.getCartListSuccess())
+  const cartListSelector = useSelector(state => state.cardRed)
+  
+  useEffect(() => {
+console.log(cartListSelector.cartList)
+
+
+
+   
+  }, )
+
 
 
   return (
