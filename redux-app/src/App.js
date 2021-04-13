@@ -1,53 +1,34 @@
+import React from 'react'
+import CardDesigns from "./components/CardDesings"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
 
-
-import './App.css';
-import CardDesigns from './components/CardDesings';
-import { useDispatch, useSelector } from 'react-redux';
-import * as actions from "./redux/actions/actions"
-import { useEffect } from 'react';
-
-
-
+} from "react-router-dom";
+import CartDesign from './components/CartDesign';
 function App() {
-  
-  // const dispatch = useDispatch()
-  
-  // dispatch(actions.getCartListSuccess())
-  // const cartList = useSelector(state => state.cartRed)
-
- 
-// const getCartList = ()=>{
-
- 
-//   console.log(cartList);
-// }
-
-// useEffect(() => {
-//  getCartList()
-// },)
-
-const dispatch = useDispatch()
-dispatch(actions.getCartListSuccess())
-  const cartListSelector = useSelector(state => state.cardRed)
-  
-  useEffect(() => {
-console.log(cartListSelector.cartList)
-
-
+  return (
+    <div>
+    <Router>
+    <Switch>
+    <Route exact path="/">
+    <CardDesigns/>
+    </Route>
+    <Route path="/cart">
+    <CartDesign/>
+    
+    </Route>
+    
+    </Switch>
+    
+    </Router>
 
    
-  }, )
-
-
-
-  return (
-    <div className="app">
-    
-   <CardDesigns/>
-    
       
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
